@@ -24,3 +24,7 @@ button {
 button:hover {
   background-color: rgb(52, 133, 106);
 }/*按鈕懸停效果*/
+#result {
+  font-weight: bold;
+  color: rgb(10, 38, 10);
+}
