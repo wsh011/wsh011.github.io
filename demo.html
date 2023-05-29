@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>匯率轉換計算機</title>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<h1>匯率轉換計算機</h1>
+
+		<p>請輸入台幣金額：</p>
+		<input type="number" id="twdAmount" placeholder="輸入台幣金額">
+
+		<button onclick="calculate()">執行計算</button>
+		<button onclick="reset()">重新開始</button>
+
+		<h2>計算結果：</h2>
+		<p id="result"></p>
+
+	<script>
+		$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: "rate.xml",
+			dataType: "xml",
+			success: function(xml){
+			var rates = {};
+			$(xml).find("rate").each(function(){
+				var currency = $(this).find("currency").text();
+				var exchangeRate = parseFloat($(this).find("exchangerate").text());
+				rates[currency] = exchangeRate;
+			});
+			window.exchangeRates = rates;
+			},
+			error: function(){
+			alert("無法讀取匯率資訊。");
+			}
+		});
+		});
+	</script>
+	</body>
+</html>
+
