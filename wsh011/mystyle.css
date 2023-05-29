@@ -1,0 +1,26 @@
+body {
+  background: linear-gradient(to bottom, #d3ebee, #99dcf0);
+  font-family: Arial, sans-serif;
+}/*背景色漸變*/
+
+p {
+  color: rgb(73, 85, 188);
+}
+h1 {
+  color: rgb(52, 18, 99);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 4, 6, 0.531);
+}/*標題顏色、陰影*/
+input[type="number"],
+button {
+  border: 1px solid rgb(130, 93, 140);
+  border-radius: 4px;
+  padding: 5px;
+}/*邊框效果*/
+button {
+  background-color: rgb(166, 234, 212);
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: rgb(52, 133, 106);
+}/*按鈕懸停效果*/
